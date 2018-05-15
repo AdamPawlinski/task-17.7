@@ -1,7 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var config = require('./config');
+var config = require('./views/config');
 var app = express();
 var googleProfile = {};
 
@@ -26,20 +26,28 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-
 app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 app.get('/', function(req, res) {
-  res.render('./app_welcome');
+  res.render('app_welcome', {user: req.user});
 });
 
-app.get('/login', function(req, res) {
-  res.render('./content');
+app.get('/logged', function(req, res) {
+  res.render('./content', {user: googleProfile});
 });
+
+app.get('/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email']
+}));
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/logged',
+    failureRedirect: '/'
+  }));
 
 app.listen(3000);
