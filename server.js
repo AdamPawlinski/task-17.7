@@ -1,9 +1,9 @@
-var express = require('express');
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var config = require('./views/config');
-var app = express();
-var googleProfile = {};
+const express = require('express');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const config = require('./views/config');
+let app = express();
+let googleProfile = {};
 
 passport.serializeUser(function(user, done) {
   done(null, user);

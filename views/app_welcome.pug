@@ -2,16 +2,17 @@ doctype html
 html(lang="en")
   head
     title="login site"
-  body(style="width:800px;margin:50px auto;font-family:Helvetica;background-color:#d3e9f8")
-    header.description Welcome to cook recipes app. The place to find all kind of ways to prepare your meals nicely and share it to others. Please login to enter your account or use your google account.
-    div.login(style="margin-top:50px")
-      form(style="margin:5%",action="#")
-          label Type your name and password:
-            br
-            input#name(style="margin:2%",type="text",placeholder="your name")
-            input#password(style="margin:2%",type="password",placeholder="password")
-            input#password-submit(style="margin:2%",type="submit",name="login",value="login")
-    div.signup(style="margin-top:50px")
-      form(style="margin:5%",action="/auth/google")
-        label If you have google account you can use it
-          input#google(style="margin:2%",type="submit",name="login by google account",value="google login")
+  body
+    section(style="width:800px;margin:50px auto;font-family:Helvetica;background-color:#d3e9f8")
+      header.description Welcome to cook recipes app. The place to find all kind of ways to prepare your meals nicely and share it to others. Please login to enter your account or use your google account.
+      div.login(style="margin-top:50px")
+        form(style="margin:5%",action="#")
+            label Type your name and password:
+              br
+              input#name(style="margin:2%",type="text",placeholder="your name")
+              input#password(style="margin:2%",type="password",placeholder="password")
+              input#password-submit(style="margin:2%",type="submit",name="login",value="login")
+      div.signup(style="margin-top:50px")
+        form(style="margin:5%",action="/auth/google")
+          label If you have google account you can use it
+            input#google(style="margin:2%",type="submit",name="login by google account",value="google login")
